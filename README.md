@@ -2,4 +2,5 @@
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/OksanaLisevich/java-project-lvl1/workflows/hexlet-check/badge.svg)](https://github.com/OksanaLisevich/java-project-lvl1/actions)
 
-[![example event parameter](https://github.com/github/docs/actions/workflows/main.yml/badge.svg?event=push)](https://github.com/OksanaLisevich/java-project-lvl1/actions)
+![example workflow](https://github.com/OksanaLisevich/java-project-lvl1/actions/workflows/github-actions-demo.yml/badge.svg)
+
