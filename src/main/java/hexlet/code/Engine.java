@@ -27,7 +27,7 @@ public class Engine {
             if (isCorrectAnswer()) {
                 successAnswerCount++;
             } else {
-                System.out.printf("Let's try again, %s\n", name);
+                System.out.printf("Let's try again, %s!\n", name);
                 return;
             }
         }
