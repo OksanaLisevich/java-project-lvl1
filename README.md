@@ -5,7 +5,5 @@
 
 ![Java CI](https://github.com/OksanaLisevich/java-project-lvl1/actions/workflows/github-actions-demo.yml/badge.svg)
 
-<a href="https://asciinema.org/connect/a65707ff-dd2a-4563-bcf6-6bf71b04bd2e">Asciinema for Even</a>
-<br>
 <a href="https://asciinema.org/connect/a65707ff-dd2a-4563-bcf6-6bf71b04bd2e">Asciinema for all games</a>
 
