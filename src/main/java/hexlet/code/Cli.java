@@ -3,11 +3,12 @@ package hexlet.code;
 import java.util.Scanner;
 
 class Cli {
-    public static void greeting() {
-        Scanner scanner = new Scanner(System.in);
+    public static String greeting(Scanner scanner) {
+        System.out.println("\nWelcome to the Brain Games!");
         System.out.print("May I have your name? ");
         String name = scanner.next();
-        System.out.printf("Hello, %1$s!\n", name);
-        scanner.close();
+        System.out.printf("Hello, %s!\n", name);
+
+        return name;
     }
 }
