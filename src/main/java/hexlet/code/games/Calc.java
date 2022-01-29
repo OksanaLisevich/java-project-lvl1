@@ -6,7 +6,7 @@ public class Calc implements Game {
     private final int maxNumber = 50;
     private final char[] actions = {'+', '-', '*'};
     private String question;
-    private String result = "";
+    private String result;
 
     private void generateData() {
         Random random = new Random();
@@ -17,6 +17,7 @@ public class Calc implements Game {
         char action = actions[actionIndex];
 
         question = firstNumber + " " + action + " " + secondNumber;
+        result = "";
         switch (action) {
             case '+':
                 result += (firstNumber + secondNumber);

@@ -6,15 +6,13 @@ public class Even implements Game {
 
     private final int maxNumber = 100;
     private String question;
-    private String result = "no";
+    private String result;
 
     private void generateData() {
         Random random = new Random();
         int questionNumber = random.nextInt(maxNumber);
         question = "" + questionNumber;
-        if (questionNumber % 2 == 0) {
-            result = "yes";
-        }
+        result = questionNumber % 2 == 0 ? "yes" : "no";
     }
 
     public final String getQuestion() {
