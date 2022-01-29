@@ -1,37 +1,22 @@
 package hexlet.code.games;
 
-import java.util.Scanner;
 import java.util.Random;
 
 public class Calc implements Game {
-    private Scanner scanner;
-    private final int maxNumber = 100;
+    private final int maxNumber = 50;
     private final char[] actions = {'+', '-', '*'};
-    private int firstNumber;
-    private int secondNumber;
-    private char action;
+    private String question;
+    private String result = "";
 
-    public Calc(Scanner scanner) {
-        this.scanner = scanner;
-    }
-
-    public Scanner getScanner() {
-        return scanner;
-    }
-
-    public String getQuestion() {
+    private void generateData() {
         Random random = new Random();
-        firstNumber = random.nextInt(maxNumber);
-        secondNumber = random.nextInt(maxNumber);
+        int firstNumber = random.nextInt(maxNumber);
+        int secondNumber = random.nextInt(maxNumber);
 
         int actionIndex = random.nextInt(actions.length);
-        action = actions[actionIndex];
+        char action = actions[actionIndex];
 
-        return firstNumber + " " + action + " " + secondNumber;
-    }
-
-    public String getQuestionResult() {
-        String result = "";
+        question = firstNumber + " " + action + " " + secondNumber;
         switch (action) {
             case '+':
                 result += (firstNumber + secondNumber);
@@ -45,6 +30,14 @@ public class Calc implements Game {
             default:
                 break;
         }
+    }
+
+    public final String getQuestion() {
+        generateData();
+        return question;
+    }
+
+    public final String getResult() {
         return result;
     }
 }

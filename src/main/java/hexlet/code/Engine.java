@@ -9,12 +9,15 @@ public class Engine {
     private Game game;
     private Scanner scanner;
 
-    public Engine(Game game) {
-        this.game = game;
-        scanner = game.getScanner();
+    public Engine() {
+        this.scanner = new Scanner(System.in);
     }
 
-    public void startGame() {
+    public final void setGame(Game newGame) {
+        this.game = newGame;
+    }
+
+    public final void startGame() {
         final String name = Cli.greeting(scanner);
         int successAnswerCount = 0;
 
@@ -30,8 +33,8 @@ public class Engine {
         System.out.printf("Congratulations, %s!\n", name);
     }
 
-    public boolean isCorrectAnswer() {
-        String result = game.getQuestionResult();
+    private boolean isCorrectAnswer() {
+        String result = game.getResult();
         String answer = getAnswer();
 
         if (answer.equals(result)) {
@@ -44,12 +47,12 @@ public class Engine {
 
     }
 
-    public void makeQuestion() {
+    private void makeQuestion() {
         String question = game.getQuestion();
         System.out.println("Question: " + question);
     }
 
-    public String getAnswer() {
+    private String getAnswer() {
         System.out.print("Your answer: ");
         return scanner.next();
     }

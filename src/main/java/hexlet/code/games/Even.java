@@ -1,33 +1,29 @@
 package hexlet.code.games;
 
-import java.util.Scanner;
 import java.util.Random;
 
 public class Even implements Game {
 
-    private Scanner scanner;
-    private int questionNumber;
     private final int maxNumber = 100;
+    private String question;
+    private String result = "no";
 
-    public Even(Scanner scanner) {
-        this.scanner = scanner;
-    }
-
-    public Scanner getScanner() {
-        return scanner;
-    }
-
-    public String getQuestion() {
+    private void generateData() {
         Random random = new Random();
-        questionNumber = random.nextInt(maxNumber);
-        return "" + questionNumber;
+        int questionNumber = random.nextInt(maxNumber);
+        question = "" + questionNumber;
+        if (questionNumber % 2 == 0) {
+            result = "yes";
+        }
     }
 
-    public String getQuestionResult() {
-        if (questionNumber % 2 == 0) {
-            return "yes";
-        }
-        return "no";
+    public final String getQuestion() {
+        generateData();
+        return question;
+    }
+
+    public final String getResult() {
+        return result;
     }
 
 }
