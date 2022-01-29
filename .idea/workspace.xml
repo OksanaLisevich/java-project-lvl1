@@ -5,10 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="77a3cfdf-0a6f-4293-84cb-b73b974cc472" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/hexlet/code/Even.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/hexlet/code/Engine.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/hexlet/code/games/Calc.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/hexlet/code/games/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hexlet/code/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hexlet/code/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hexlet/code/Cli.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hexlet/code/Cli.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hexlet/code/Even.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hexlet/code/games/Even.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,6 +40,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
