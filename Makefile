@@ -4,9 +4,6 @@ setup:
 clean:
 	./gradlew clean
 
-build:
-	./gradlew clean build
-
 install:
 	./gradlew clean install
 
@@ -18,3 +15,11 @@ run-dist:
 
 check-updates:
 	./gradlew dependencyUpdates
+
+lint:
+	./gradlew checkstyleMain
+
+build: lint
+	./gradlew clean build
+
+.PHONY: build
