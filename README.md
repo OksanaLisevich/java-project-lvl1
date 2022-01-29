@@ -5,6 +5,4 @@
 
 ![Java CI](https://github.com/OksanaLisevich/java-project-lvl1/actions/workflows/github-actions-demo.yml/badge.svg)
 
-![example event parameter](https://github.com/github/docs/actions/workflows/main.yml/badge.svg?event=push)
-![example branch parameter](https://github.com/github/docs/actions/workflows/main.yml/badge.svg?branch=main)
 
