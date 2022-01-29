@@ -27,6 +27,9 @@ public class App {
         Engine engine = new Engine();
 
         switch (choice) {
+            case "1":
+                Cli.greeting(scanner);
+                return;
             case "2":
                 engine.setGame(new Even());
                 break;
@@ -43,7 +46,6 @@ public class App {
                 engine.setGame(new Prime());
                 break;
             default:
-                Cli.greeting(scanner);
                 return;
         }
 
