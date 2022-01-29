@@ -19,6 +19,10 @@ public class Even implements Game {
         return number % 2 == 0;
     }
 
+    public final void showRules() {
+        System.out.println("Answer 'yes' if number even otherwise answer 'no'.");
+    }
+
     public final String getQuestion() {
         generateData();
         return question;

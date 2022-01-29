@@ -30,6 +30,10 @@ public class Progression implements Game {
         result = "" + progression[hideIndex];
     }
 
+    public final void showRules() {
+        System.out.println("What number is missing in the progression?");
+    }
+
     public final String getQuestion() {
         generateData();
         return question;

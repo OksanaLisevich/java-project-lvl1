@@ -27,6 +27,10 @@ public class GCD implements Game {
         return a;
     }
 
+    public final void showRules() {
+        System.out.println("Find the greatest common divisor of given numbers.");
+    }
+
     public final String getQuestion() {
         generateData();
         return question;

@@ -21,6 +21,7 @@ public class Engine {
         final String name = Cli.greeting(scanner);
         int successAnswerCount = 0;
 
+        game.showRules();
         while (successAnswerCount < Game.NEEDED_SUCCESS_COUNT) {
             makeQuestion();
             if (isCorrectAnswer()) {

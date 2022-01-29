@@ -38,6 +38,10 @@ public class Calc implements Game {
         return result;
     }
 
+    public final void showRules() {
+        System.out.println("What is the result of the expression?");
+    }
+
     public final String getQuestion() {
         generateData();
         return question;
