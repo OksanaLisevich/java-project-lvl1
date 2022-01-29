@@ -12,7 +12,7 @@ public class Even implements Game {
         Random random = new Random();
         int questionNumber = random.nextInt(maxNumber);
         question = "" + questionNumber;
-        result = isEven(questionNumber) ? "no" : "yes";
+        result = isEven(questionNumber) ? "yes" : "no";
     }
 
     public static boolean isEven(int number) {
