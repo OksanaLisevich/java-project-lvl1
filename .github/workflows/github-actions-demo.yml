@@ -1,5 +1,8 @@
-name: GitHub Actions Demo
-on: [push]
+name: Java CI
+on:
+  - push
+  - pull_request
+
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
@@ -15,4 +18,10 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
-      - run: make build
+      - name: Set up openJDK
+          uses: actions/setup-java@v2
+          with:
+            distribution: 'temurin'
+            java-version: '17'
+      - name: Build with Gradle
+        run: make build
