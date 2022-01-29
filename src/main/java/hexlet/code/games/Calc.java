@@ -17,20 +17,25 @@ public class Calc implements Game {
         char action = actions[actionIndex];
 
         question = firstNumber + " " + action + " " + secondNumber;
-        result = "";
+        result = "" + calculate(firstNumber, secondNumber, action);
+    }
+
+    public static int calculate(int firstNumber, int secondNumber, char action) {
+        int result = 0;
         switch (action) {
             case '+':
-                result += (firstNumber + secondNumber);
+                result = (firstNumber + secondNumber);
                 break;
             case '-':
-                result += (firstNumber - secondNumber);
+                result = (firstNumber - secondNumber);
                 break;
             case '*':
-                result += (firstNumber * secondNumber);
+                result = (firstNumber * secondNumber);
                 break;
             default:
                 break;
         }
+        return result;
     }
 
     public final String getQuestion() {
