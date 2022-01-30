@@ -6,5 +6,5 @@ public interface Game {
 
     String getGameInfo();
     String getQuestion();
-    String getResult();
+    String getExpectedAnswer();
 }

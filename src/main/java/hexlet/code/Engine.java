@@ -37,7 +37,7 @@ public class Engine {
     }
 
     private boolean isCorrectAnswer() {
-        String result = game.getResult();
+        String result = game.getExpectedAnswer();
         String answer = getAnswer();
 
         if (answer.equals(result)) {

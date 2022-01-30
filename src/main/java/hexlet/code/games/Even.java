@@ -6,7 +6,7 @@ public class Even implements Game {
 
     private final int maxNumber = 100;
     private final String gameInfo = "Answer 'yes' if number even otherwise answer 'no'.";
-    private String result;
+    private String expectedAnswer;
 
     public final String getGameInfo() {
         return gameInfo;
@@ -15,12 +15,12 @@ public class Even implements Game {
     public final String getQuestion() {
         Random random = new Random();
         int questionNumber = random.nextInt(maxNumber);
-        result = isEven(questionNumber) ? "yes" : "no";
+        expectedAnswer = isEven(questionNumber) ? "yes" : "no";
         return "" + questionNumber;
     }
 
-    public final String getResult() {
-        return result;
+    public final String getExpectedAnswer() {
+        return expectedAnswer;
     }
 
     public static boolean isEven(int number) {

@@ -7,7 +7,7 @@ public class Progression implements Game {
     private final String gameInfo = "What number is missing in the progression?";
     private final int minLen = 5;
     private final int maxLen = 10;
-    private String result;
+    private String expectedAnswer;
 
     public final String getGameInfo() {
         return gameInfo;
@@ -29,11 +29,11 @@ public class Progression implements Game {
             question.append(i == hideIndex ? ".. " : progression[i] + " ");
         }
 
-        result = "" + progression[hideIndex];
+        expectedAnswer = "" + progression[hideIndex];
         return question.toString();
     }
 
-    public final String getResult() {
-        return result;
+    public final String getExpectedAnswer() {
+        return expectedAnswer;
     }
 }

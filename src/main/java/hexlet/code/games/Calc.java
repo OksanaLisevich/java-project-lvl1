@@ -6,7 +6,7 @@ public class Calc implements Game {
     private final int maxNumber = 50;
     private final String gameInfo = "What is the result of the expression?";
     private final char[] actions = {'+', '-', '*'};
-    private String result;
+    private String expectedAnswer;
 
     public final String getGameInfo() {
         return gameInfo;
@@ -19,12 +19,12 @@ public class Calc implements Game {
 
         char action = actions[random.nextInt(actions.length)];
 
-        result = "" + calculate(firstNumber, secondNumber, action);
+        expectedAnswer = "" + calculate(firstNumber, secondNumber, action);
         return firstNumber + " " + action + " " + secondNumber;
     }
 
-    public final String getResult() {
-        return result;
+    public final String getExpectedAnswer() {
+        return expectedAnswer;
     }
 
     public static int calculate(int firstNumber, int secondNumber, char action) {

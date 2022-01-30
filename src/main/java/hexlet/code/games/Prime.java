@@ -5,7 +5,7 @@ import java.util.Random;
 public class Prime implements Game {
     private final int maxNumber = 50;
     private final String gameInfo = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
-    private String result;
+    private String expectedAnswer;
 
     public final String getGameInfo() {
         return gameInfo;
@@ -15,12 +15,12 @@ public class Prime implements Game {
         Random random = new Random();
         int number = random.nextInt(maxNumber);
 
-        result = isPrime(number) ? "yes" : "no";
+        expectedAnswer = isPrime(number) ? "yes" : "no";
         return "" + number;
     }
 
-    public final String getResult() {
-        return result;
+    public final String getExpectedAnswer() {
+        return expectedAnswer;
     }
 
     public static boolean isPrime(int number) {
