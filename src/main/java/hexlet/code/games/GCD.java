@@ -6,18 +6,23 @@ public class GCD implements Game {
     private final int maxNumber = 100;
     private final String gameInfo = "Find the greatest common divisor of given numbers.";
     private String expectedAnswer;
+    private String question;
 
     public final String getGameInfo() {
         return gameInfo;
     }
 
-    public final String getQuestion() {
+    public final void generateNewGameData() {
         Random random = new Random();
         int firstNumber = random.nextInt(maxNumber);
         int secondNumber = random.nextInt(maxNumber);
 
         expectedAnswer = "" + calculateGCD(firstNumber, secondNumber);
-        return firstNumber + " " + secondNumber;
+        question = firstNumber + " " + secondNumber;
+    }
+
+    public final String getQuestion() {
+        return question;
     }
 
     public final String getExpectedAnswer() {

@@ -7,12 +7,13 @@ public class Calc implements Game {
     private final String gameInfo = "What is the result of the expression?";
     private final char[] actions = {'+', '-', '*'};
     private String expectedAnswer;
+    private String question;
 
     public final String getGameInfo() {
         return gameInfo;
     }
 
-    public final String getQuestion() {
+    public final void generateNewGameData() {
         Random random = new Random();
         int firstNumber = random.nextInt(maxNumber);
         int secondNumber = random.nextInt(maxNumber);
@@ -20,7 +21,11 @@ public class Calc implements Game {
         char action = actions[random.nextInt(actions.length)];
 
         expectedAnswer = "" + calculate(firstNumber, secondNumber, action);
-        return firstNumber + " " + action + " " + secondNumber;
+        question = firstNumber + " " + action + " " + secondNumber;
+    }
+
+    public final String getQuestion() {
+        return question;
     }
 
     public final String getExpectedAnswer() {

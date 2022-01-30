@@ -8,12 +8,13 @@ public class Progression implements Game {
     private final int minLen = 5;
     private final int maxLen = 10;
     private String expectedAnswer;
+    private String question;
 
     public final String getGameInfo() {
         return gameInfo;
     }
 
-    public final String getQuestion() {
+    public final void generateNewGameData() {
         Random random = new Random();
         int start = random.nextInt(maxStart);
         int counter = random.nextInt(maxStart);
@@ -22,15 +23,19 @@ public class Progression implements Game {
         int hideIndex = random.nextInt(len);
 
         int[] progression = new int[len];
-        StringBuilder question = new StringBuilder();
+        StringBuilder stringBuilder = new StringBuilder();
         for (int i = 0; i < len; i++) {
             progression[i] = start;
             start += counter;
-            question.append(i == hideIndex ? ".. " : progression[i] + " ");
+            stringBuilder.append(i == hideIndex ? ".. " : progression[i] + " ");
         }
 
         expectedAnswer = "" + progression[hideIndex];
-        return question.toString();
+        question = stringBuilder.toString();
+    }
+
+    public final String getQuestion() {
+        return question;
     }
 
     public final String getExpectedAnswer() {

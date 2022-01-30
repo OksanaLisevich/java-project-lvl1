@@ -7,9 +7,11 @@ public class Engine {
 
     private Game game;
     private Scanner scanner;
+    private int successAnswerCount;
 
     public Engine() {
         scanner = new Scanner(System.in);
+        successAnswerCount = 0;
     }
 
     public final void setGame(Game selectedGame) {
@@ -18,13 +20,11 @@ public class Engine {
 
     public final void startGame() {
         final String name = Cli.greeting(scanner);
-        int successAnswerCount = 0;
         System.out.println(game.getGameInfo());
         while (successAnswerCount < Game.NEEDED_SUCCESS_COUNT) {
+            game.generateNewGameData();
             makeQuestion();
-            if (isCorrectAnswer()) {
-                successAnswerCount++;
-            } else {
+            if (!checkAnswer()) {
                 System.out.printf("Let's try again, %s!\n", name);
                 return;
             }
@@ -36,11 +36,12 @@ public class Engine {
         System.out.println("Question: " + game.getQuestion());
     }
 
-    private boolean isCorrectAnswer() {
+    private boolean checkAnswer() {
         String result = game.getExpectedAnswer();
         String answer = getAnswer();
 
         if (answer.equals(result)) {
+            successAnswerCount++;
             System.out.println("Correct!");
             return true;
         }

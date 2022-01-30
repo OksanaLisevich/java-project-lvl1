@@ -6,17 +6,22 @@ public class Prime implements Game {
     private final int maxNumber = 50;
     private final String gameInfo = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
     private String expectedAnswer;
+    private String question;
 
     public final String getGameInfo() {
         return gameInfo;
     }
 
-    public final String getQuestion() {
+    public final void generateNewGameData() {
         Random random = new Random();
         int number = random.nextInt(maxNumber);
 
         expectedAnswer = isPrime(number) ? "yes" : "no";
-        return "" + number;
+        question = "" + number;
+    }
+
+    public final String getQuestion() {
+        return question;
     }
 
     public final String getExpectedAnswer() {
