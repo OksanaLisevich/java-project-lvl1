@@ -4,12 +4,16 @@ import java.util.Random;
 
 public class Progression implements Game {
     private final int maxStart = 50;
+    private final String rule = "What number is missing in the progression?";
     private final int minLen = 5;
     private final int maxLen = 10;
-    private String question;
     private String result;
 
-    private void generateData() {
+    public final void printRule() {
+        System.out.println(rule);
+    }
+
+    public final String getQuestion() {
         Random random = new Random();
         int start = random.nextInt(maxStart);
         int counter = random.nextInt(maxStart);
@@ -18,25 +22,15 @@ public class Progression implements Game {
         int hideIndex = random.nextInt(len);
 
         int[] progression = new int[len];
-        StringBuilder str = new StringBuilder();
+        StringBuilder question = new StringBuilder();
         for (int i = 0; i < len; i++) {
-            progression[i] = start + counter;
+            progression[i] = start;
             start += counter;
-            str.append(i == hideIndex ? ".." : "" + progression[i]);
-            str.append(" ");
+            question.append(i == hideIndex ? ".. " : progression[i] + " ");
         }
 
-        question = str.toString();
         result = "" + progression[hideIndex];
-    }
-
-    public final void showRules() {
-        System.out.println("What number is missing in the progression?");
-    }
-
-    public final String getQuestion() {
-        generateData();
-        return question;
+        return question.toString();
     }
 
     public final String getResult() {

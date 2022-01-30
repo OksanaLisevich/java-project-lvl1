@@ -4,16 +4,24 @@ import java.util.Random;
 
 public class GCD implements Game {
     private final int maxNumber = 100;
-    private String question;
+    private final String rule = "Find the greatest common divisor of given numbers.";
     private String result;
 
-    private void generateData() {
+    public final void printRule() {
+        System.out.println(rule);
+    }
+
+    public final String getQuestion() {
         Random random = new Random();
         int firstNumber = random.nextInt(maxNumber);
         int secondNumber = random.nextInt(maxNumber);
 
-        question = firstNumber + " " + secondNumber;
         result = "" + calculateGCD(firstNumber, secondNumber);
+        return firstNumber + " " + secondNumber;
+    }
+
+    public final String getResult() {
+        return result;
     }
 
     public static int calculateGCD(int firstNumber, int secondNumber) {
@@ -25,18 +33,5 @@ public class GCD implements Game {
             b = rest;
         }
         return a;
-    }
-
-    public final void showRules() {
-        System.out.println("Find the greatest common divisor of given numbers.");
-    }
-
-    public final String getQuestion() {
-        generateData();
-        return question;
-    }
-
-    public final String getResult() {
-        return result;
     }
 }

@@ -1,7 +1,6 @@
 package hexlet.code;
 
 import hexlet.code.games.Game;
-
 import java.util.Scanner;
 
 public class Engine {
@@ -10,18 +9,17 @@ public class Engine {
     private Scanner scanner;
 
     public Engine() {
-        this.scanner = new Scanner(System.in);
+        scanner = new Scanner(System.in);
     }
 
-    public final void setGame(Game newGame) {
-        this.game = newGame;
+    public final void setGame(Game selectedGame) {
+        game = selectedGame;
     }
 
     public final void startGame() {
         final String name = Cli.greeting(scanner);
         int successAnswerCount = 0;
-
-        game.showRules();
+        game.printRule();
         while (successAnswerCount < Game.NEEDED_SUCCESS_COUNT) {
             makeQuestion();
             if (isCorrectAnswer()) {
@@ -32,6 +30,10 @@ public class Engine {
             }
         }
         System.out.printf("Congratulations, %s!\n", name);
+    }
+
+    private void makeQuestion() {
+        System.out.println("Question: " + game.getQuestion());
     }
 
     private boolean isCorrectAnswer() {
@@ -46,11 +48,6 @@ public class Engine {
         System.out.printf("Correct answer was '%s'.\n", result);
         return false;
 
-    }
-
-    private void makeQuestion() {
-        String question = game.getQuestion();
-        System.out.println("Question: " + question);
     }
 
     private String getAnswer() {

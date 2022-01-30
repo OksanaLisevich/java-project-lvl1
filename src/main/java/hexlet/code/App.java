@@ -23,7 +23,6 @@ public class App {
 
         System.out.print("Your choice: ");
         String choice = scanner.next();
-
         Engine engine = new Engine();
 
         switch (choice) {

@@ -4,15 +4,23 @@ import java.util.Random;
 
 public class Prime implements Game {
     private final int maxNumber = 50;
-    private String question;
+    private final String rule = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
     private String result;
 
-    private void generateData() {
+    public final void printRule() {
+        System.out.println(rule);
+    }
+
+    public final String getQuestion() {
         Random random = new Random();
         int number = random.nextInt(maxNumber);
 
-        question = "" + number;
         result = isPrime(number) ? "yes" : "no";
+        return "" + number;
+    }
+
+    public final String getResult() {
+        return result;
     }
 
     public static boolean isPrime(int number) {
@@ -24,16 +32,4 @@ public class Prime implements Game {
         return true;
     }
 
-    public final void showRules() {
-        System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
-    }
-
-    public final String getQuestion() {
-        generateData();
-        return question;
-    }
-
-    public final String getResult() {
-        return result;
-    }
 }
