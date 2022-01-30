@@ -4,12 +4,12 @@ import java.util.Random;
 
 public class Calc implements Game {
     private final int maxNumber = 50;
-    private final String rule = "What is the result of the expression?";
+    private final String gameInfo = "What is the result of the expression?";
     private final char[] actions = {'+', '-', '*'};
     private String result;
 
-    public final void printRule() {
-        System.out.println(rule);
+    public final String getGameInfo() {
+        return gameInfo;
     }
 
     public final String getQuestion() {

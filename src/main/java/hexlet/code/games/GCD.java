@@ -4,11 +4,11 @@ import java.util.Random;
 
 public class GCD implements Game {
     private final int maxNumber = 100;
-    private final String rule = "Find the greatest common divisor of given numbers.";
+    private final String gameInfo = "Find the greatest common divisor of given numbers.";
     private String result;
 
-    public final void printRule() {
-        System.out.println(rule);
+    public final String getGameInfo() {
+        return gameInfo;
     }
 
     public final String getQuestion() {

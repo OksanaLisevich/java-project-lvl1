@@ -5,11 +5,11 @@ import java.util.Random;
 public class Even implements Game {
 
     private final int maxNumber = 100;
-    private final String rule = "Answer 'yes' if number even otherwise answer 'no'.";
+    private final String gameInfo = "Answer 'yes' if number even otherwise answer 'no'.";
     private String result;
 
-    public final void printRule() {
-        System.out.println(rule);
+    public final String getGameInfo() {
+        return gameInfo;
     }
 
     public final String getQuestion() {

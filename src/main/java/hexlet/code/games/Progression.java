@@ -4,13 +4,13 @@ import java.util.Random;
 
 public class Progression implements Game {
     private final int maxStart = 50;
-    private final String rule = "What number is missing in the progression?";
+    private final String gameInfo = "What number is missing in the progression?";
     private final int minLen = 5;
     private final int maxLen = 10;
     private String result;
 
-    public final void printRule() {
-        System.out.println(rule);
+    public final String getGameInfo() {
+        return gameInfo;
     }
 
     public final String getQuestion() {

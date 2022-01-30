@@ -4,11 +4,11 @@ import java.util.Random;
 
 public class Prime implements Game {
     private final int maxNumber = 50;
-    private final String rule = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+    private final String gameInfo = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
     private String result;
 
-    public final void printRule() {
-        System.out.println(rule);
+    public final String getGameInfo() {
+        return gameInfo;
     }
 
     public final String getQuestion() {

@@ -19,7 +19,7 @@ public class Engine {
     public final void startGame() {
         final String name = Cli.greeting(scanner);
         int successAnswerCount = 0;
-        game.printRule();
+        System.out.println(game.getGameInfo());
         while (successAnswerCount < Game.NEEDED_SUCCESS_COUNT) {
             makeQuestion();
             if (isCorrectAnswer()) {

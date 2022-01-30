@@ -4,7 +4,7 @@ public interface Game {
 
     int NEEDED_SUCCESS_COUNT = 3;
 
-    void printRule();
+    String getGameInfo();
     String getQuestion();
     String getResult();
 }
