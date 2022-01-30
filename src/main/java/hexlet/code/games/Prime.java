@@ -29,7 +29,7 @@ public class Prime implements Game {
                 return false;
             }
         }
-        return true;
+        return number < 2 ? false : true;
     }
 
 }
