@@ -1,31 +1,17 @@
 package hexlet.code.games;
 
-import java.util.Random;
-
 public class Even implements Game {
+    private static final String GAME_INFO = "Answer 'yes' if number even otherwise answer 'no'.";
 
-    private final int maxNumber = 100;
-    private final String gameInfo = "Answer 'yes' if number even otherwise answer 'no'.";
-    private String expectedAnswer;
-    private String question;
+    public final GameKit generateGameKit() {
+        GameKit gameKit = new GameKit();
+        gameKit.setInfo(GAME_INFO);
+        int questionNumber = Util.getRandomInt(Game.MAX_NUMBER);
 
-    public final String getGameInfo() {
-        return gameInfo;
-    }
+        gameKit.setQuestion("" + questionNumber);
+        gameKit.setExpectedAnswer(isEven(questionNumber) ? "yes" : "no");
 
-    public final void generateNewGameData() {
-        Random random = new Random();
-        int questionNumber = random.nextInt(maxNumber);
-        expectedAnswer = isEven(questionNumber) ? "yes" : "no";
-        question = "" + questionNumber;
-    }
-
-    public final String getQuestion() {
-        return question;
-    }
-
-    public final String getExpectedAnswer() {
-        return expectedAnswer;
+        return gameKit;
     }
 
     public static boolean isEven(int number) {

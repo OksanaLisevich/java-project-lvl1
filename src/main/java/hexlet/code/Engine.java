@@ -1,30 +1,30 @@
 package hexlet.code;
 
+import hexlet.code.games.GameKit;
 import hexlet.code.games.Game;
+
 import java.util.Scanner;
 
 public class Engine {
 
-    private Game game;
-    private Scanner scanner;
-    private int successAnswerCount;
+    private static Scanner scanner = new Scanner(System.in);
 
-    public Engine() {
-        scanner = new Scanner(System.in);
-        successAnswerCount = 0;
+    public static void startGame(Game game) {
+        GameKit[] gameKits = new GameKit[Game.NEEDED_SUCCESS_COUNT];
+        for (int i = 0; i < gameKits.length; i++) {
+            gameKits[i] = game.generateGameKit();
+        }
+        runGame(gameKits);
     }
 
-    public final void setGame(Game selectedGame) {
-        game = selectedGame;
-    }
-
-    public final void startGame() {
+    private static void runGame(GameKit[] gameKits) {
         final String name = Cli.greeting(scanner);
-        System.out.println(game.getGameInfo());
-        while (successAnswerCount < Game.NEEDED_SUCCESS_COUNT) {
-            game.generateNewGameData();
-            makeQuestion();
-            if (!checkAnswer()) {
+        System.out.println(gameKits[0].getInfo());
+        for (int answerCount = 0; answerCount < Game.NEEDED_SUCCESS_COUNT; answerCount++) {
+            GameKit gameKit = gameKits[answerCount];
+            makeQuestion(gameKit.getQuestion());
+            String answer = getAnswer();
+            if (!checkAnswer(gameKit.getExpectedAnswer(), answer)) {
                 System.out.printf("Let's try again, %s!\n", name);
                 return;
             }
@@ -32,27 +32,23 @@ public class Engine {
         System.out.printf("Congratulations, %s!\n", name);
     }
 
-    private void makeQuestion() {
-        System.out.println("Question: " + game.getQuestion());
+    private static void makeQuestion(String question) {
+        System.out.println("Question: " + question);
     }
 
-    private boolean checkAnswer() {
-        String result = game.getExpectedAnswer();
-        String answer = getAnswer();
+    private static String getAnswer() {
+        System.out.print("Your answer: ");
+        return scanner.next();
+    }
 
-        if (answer.equals(result)) {
-            successAnswerCount++;
+    private static boolean checkAnswer(String expectedAnswer, String answer) {
+        if (answer.equals(expectedAnswer)) {
             System.out.println("Correct!");
             return true;
         }
         System.out.printf("'%s' is wrong answer ;(. ", answer);
-        System.out.printf("Correct answer was '%s'.\n", result);
+        System.out.printf("Correct answer was '%s'.\n", expectedAnswer);
         return false;
-
     }
 
-    private String getAnswer() {
-        System.out.print("Your answer: ");
-        return scanner.next();
-    }
 }

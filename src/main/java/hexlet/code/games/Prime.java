@@ -1,31 +1,16 @@
 package hexlet.code.games;
 
-import java.util.Random;
-
 public class Prime implements Game {
-    private final int maxNumber = 50;
-    private final String gameInfo = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
-    private String expectedAnswer;
-    private String question;
+    private static final String GAME_INFO = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
 
-    public final String getGameInfo() {
-        return gameInfo;
-    }
+    public final GameKit generateGameKit() {
+        GameKit gameKit = new GameKit();
+        gameKit.setInfo(GAME_INFO);
+        int number = Util.getRandomInt(Game.MAX_NUMBER);
+        gameKit.setQuestion("" + number);
+        gameKit.setExpectedAnswer(isPrime(number) ? "yes" : "no");
 
-    public final void generateNewGameData() {
-        Random random = new Random();
-        int number = random.nextInt(maxNumber);
-
-        expectedAnswer = isPrime(number) ? "yes" : "no";
-        question = "" + number;
-    }
-
-    public final String getQuestion() {
-        return question;
-    }
-
-    public final String getExpectedAnswer() {
-        return expectedAnswer;
+        return gameKit;
     }
 
     public static boolean isPrime(int number) {

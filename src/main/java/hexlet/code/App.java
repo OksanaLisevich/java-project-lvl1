@@ -23,32 +23,30 @@ public class App {
 
         System.out.print("Your choice: ");
         String choice = scanner.next();
-        Engine engine = new Engine();
 
         switch (choice) {
             case "1":
                 Cli.greeting(scanner);
                 return;
             case "2":
-                engine.setGame(new Even());
+                Engine.startGame(new Even());
                 break;
             case "3":
-                engine.setGame(new Calc());
+                Engine.startGame(new Calc());
                 break;
             case "4":
-                engine.setGame(new GCD());
+                Engine.startGame(new GCD());
                 break;
             case "5":
-                engine.setGame(new Progression());
+                Engine.startGame(new Progression());
                 break;
             case "6":
-                engine.setGame(new Prime());
+                Engine.startGame(new Prime());
                 break;
             default:
                 return;
         }
 
-        engine.startGame();
         scanner.close();
     }
 }

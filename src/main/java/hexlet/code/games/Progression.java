@@ -1,27 +1,18 @@
 package hexlet.code.games;
 
-import java.util.Random;
-
 public class Progression implements Game {
-    private final int maxStart = 50;
-    private final String gameInfo = "What number is missing in the progression?";
-    private final int minLen = 5;
-    private final int maxLen = 10;
-    private String expectedAnswer;
-    private String question;
+    private static final String GAME_INFO = "What number is missing in the progression?";
+    private static final int MIN_LEN = 5;
+    private static final int MAX_LEN = 10;
 
-    public final String getGameInfo() {
-        return gameInfo;
-    }
+    public final GameKit generateGameKit() {
+        GameKit gameKit = new GameKit();
+        gameKit.setInfo(GAME_INFO);
 
-    public final void generateNewGameData() {
-        Random random = new Random();
-        int start = random.nextInt(maxStart);
-        int counter = random.nextInt(maxStart);
-        int len = random.nextInt(maxLen);
-        len = len < minLen ? minLen : len;
-        int hideIndex = random.nextInt(len);
-
+        int start = Util.getRandomInt(Game.MAX_NUMBER);
+        int counter = Util.getRandomInt(Game.MAX_NUMBER);
+        int len = Util.getRandomInt(MIN_LEN, MAX_LEN);
+        int hideIndex = Util.getRandomInt(len);
         int[] progression = new int[len];
         StringBuilder stringBuilder = new StringBuilder();
         for (int i = 0; i < len; i++) {
@@ -30,15 +21,10 @@ public class Progression implements Game {
             stringBuilder.append(i == hideIndex ? ".. " : progression[i] + " ");
         }
 
-        expectedAnswer = "" + progression[hideIndex];
-        question = stringBuilder.toString();
+        gameKit.setQuestion(stringBuilder.toString());
+        gameKit.setExpectedAnswer("" + progression[hideIndex]);
+
+        return gameKit;
     }
 
-    public final String getQuestion() {
-        return question;
-    }
-
-    public final String getExpectedAnswer() {
-        return expectedAnswer;
-    }
 }

@@ -1,35 +1,21 @@
 package hexlet.code.games;
 
-import java.util.Random;
-
 public class Calc implements Game {
-    private final int maxNumber = 50;
-    private final String gameInfo = "What is the result of the expression?";
-    private final char[] actions = {'+', '-', '*'};
-    private String expectedAnswer;
-    private String question;
+    private static final String GAME_INFO = "What is the result of the expression?";
+    private static final char[] ACTIONS = {'+', '-', '*'};
 
-    public final String getGameInfo() {
-        return gameInfo;
-    }
+    public final GameKit generateGameKit() {
+        GameKit gameKit = new GameKit();
+        gameKit.setInfo(GAME_INFO);
 
-    public final void generateNewGameData() {
-        Random random = new Random();
-        int firstNumber = random.nextInt(maxNumber);
-        int secondNumber = random.nextInt(maxNumber);
+        int firstNumber = Util.getRandomInt(Game.MAX_NUMBER);
+        int secondNumber = Util.getRandomInt(Game.MAX_NUMBER);
+        char action = ACTIONS[Util.getRandomInt(ACTIONS.length)];
 
-        char action = actions[random.nextInt(actions.length)];
+        gameKit.setQuestion(firstNumber + " " + action + " " + secondNumber);
+        gameKit.setExpectedAnswer("" + calculate(firstNumber, secondNumber, action));
 
-        expectedAnswer = "" + calculate(firstNumber, secondNumber, action);
-        question = firstNumber + " " + action + " " + secondNumber;
-    }
-
-    public final String getQuestion() {
-        return question;
-    }
-
-    public final String getExpectedAnswer() {
-        return expectedAnswer;
+        return gameKit;
     }
 
     public static int calculate(int firstNumber, int secondNumber, char action) {
