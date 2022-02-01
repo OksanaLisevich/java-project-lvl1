@@ -11,8 +11,8 @@ public class Engine {
 
     public static void startGame(Game game) {
         final String name = Cli.greeting(scanner);
-        GameKit gameKit = game.generateGameKit();
-        System.out.println(gameKit.getInfo());
+        GameKit gameKit;
+        System.out.println(game.getInfo());
         for (int answerCount = 0; answerCount < Game.NEEDED_SUCCESS_COUNT; answerCount++) {
             gameKit = game.generateGameKit();
             makeQuestion(gameKit.getQuestion());

@@ -5,9 +5,12 @@ public class Progression implements Game {
     private static final int MIN_LEN = 5;
     private static final int MAX_LEN = 10;
 
+    public final String getInfo() {
+        return GAME_INFO;
+    }
+
     public final GameKit generateGameKit() {
         GameKit gameKit = new GameKit();
-        gameKit.setInfo(GAME_INFO);
 
         int start = Util.getRandomInt(Game.MAX_NUMBER);
         int counter = Util.getRandomInt(Game.MAX_NUMBER);

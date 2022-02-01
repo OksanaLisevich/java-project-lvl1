@@ -3,9 +3,12 @@ package hexlet.code.games;
 public class Prime implements Game {
     private static final String GAME_INFO = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
 
+    public final String getInfo() {
+        return GAME_INFO;
+    }
+
     public final GameKit generateGameKit() {
         GameKit gameKit = new GameKit();
-        gameKit.setInfo(GAME_INFO);
         int number = Util.getRandomInt(Game.MAX_NUMBER);
         gameKit.setQuestion("" + number);
         gameKit.setExpectedAnswer(isPrime(number) ? "yes" : "no");

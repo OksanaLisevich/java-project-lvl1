@@ -3,9 +3,12 @@ package hexlet.code.games;
 public class GCD implements Game {
     private static final String GAME_INFO = "Find the greatest common divisor of given numbers.";
 
+    public final String getInfo() {
+        return GAME_INFO;
+    }
+
     public final GameKit generateGameKit() {
         GameKit gameKit = new GameKit();
-        gameKit.setInfo(GAME_INFO);
         int firstNumber = Util.getRandomInt(Game.MAX_NUMBER);
         int secondNumber = Util.getRandomInt(Game.MAX_NUMBER);
 
