@@ -8,13 +8,12 @@ public class Even implements Game {
     }
 
     public final GameKit generateGameKit() {
-        GameKit gameKit = new GameKit();
         int questionNumber = Util.getRandomInt(Game.MAX_NUMBER);
 
-        gameKit.setQuestion("" + questionNumber);
-        gameKit.setExpectedAnswer(isEven(questionNumber) ? "yes" : "no");
+        String question = "" + questionNumber;
+        String expectedAnswer = isEven(questionNumber) ? "yes" : "no";
 
-        return gameKit;
+        return new GameKit(question, expectedAnswer);
     }
 
     public static boolean isEven(int number) {

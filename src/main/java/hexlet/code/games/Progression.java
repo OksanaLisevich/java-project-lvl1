@@ -10,8 +10,6 @@ public class Progression implements Game {
     }
 
     public final GameKit generateGameKit() {
-        GameKit gameKit = new GameKit();
-
         int start = Util.getRandomInt(Game.MAX_NUMBER);
         int counter = Util.getRandomInt(Game.MAX_NUMBER);
         int len = Util.getRandomInt(MIN_LEN, MAX_LEN);
@@ -23,11 +21,10 @@ public class Progression implements Game {
             start += counter;
             stringBuilder.append(i == hideIndex ? ".. " : progression[i] + " ");
         }
+        String question = stringBuilder.toString();
+        String expectedAnswer = "" + progression[hideIndex];
 
-        gameKit.setQuestion(stringBuilder.toString());
-        gameKit.setExpectedAnswer("" + progression[hideIndex]);
-
-        return gameKit;
+        return new GameKit(question, expectedAnswer);
     }
 
 }

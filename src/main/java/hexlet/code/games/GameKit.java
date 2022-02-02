@@ -1,14 +1,11 @@
 package hexlet.code.games;
 
 public class GameKit {
-    private String question;
-    private String expectedAnswer;
+    private final String question;
+    private final String expectedAnswer;
 
-    public final void setQuestion(String gameQuestion) {
+    public  GameKit(String gameQuestion, String gameExpectedAnswer) {
         question = gameQuestion;
-    }
-
-    public final void setExpectedAnswer(String gameExpectedAnswer) {
         expectedAnswer = gameExpectedAnswer;
     }
 

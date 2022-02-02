@@ -8,12 +8,12 @@ public class Prime implements Game {
     }
 
     public final GameKit generateGameKit() {
-        GameKit gameKit = new GameKit();
         int number = Util.getRandomInt(Game.MAX_NUMBER);
-        gameKit.setQuestion("" + number);
-        gameKit.setExpectedAnswer(isPrime(number) ? "yes" : "no");
 
-        return gameKit;
+        String question = "" + number;
+        String expectedAnswer = isPrime(number) ? "yes" : "no";
+
+        return new GameKit(question, expectedAnswer);
     }
 
     public static boolean isPrime(int number) {

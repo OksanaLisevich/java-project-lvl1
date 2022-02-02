@@ -8,14 +8,13 @@ public class GCD implements Game {
     }
 
     public final GameKit generateGameKit() {
-        GameKit gameKit = new GameKit();
         int firstNumber = Util.getRandomInt(Game.MAX_NUMBER);
         int secondNumber = Util.getRandomInt(Game.MAX_NUMBER);
 
-        gameKit.setQuestion(firstNumber + " " + secondNumber);
-        gameKit.setExpectedAnswer("" + calculateGCD(firstNumber, secondNumber));
+        String question = firstNumber + " " + secondNumber;
+        String expectedAnswer = "" + calculateGCD(firstNumber, secondNumber);
 
-        return gameKit;
+        return new GameKit(question, expectedAnswer);
     }
 
     public static int calculateGCD(int firstNumber, int secondNumber) {

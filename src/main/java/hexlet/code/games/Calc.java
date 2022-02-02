@@ -9,16 +9,15 @@ public class Calc implements Game {
     }
 
     public final GameKit generateGameKit() {
-        GameKit gameKit = new GameKit();
 
         int firstNumber = Util.getRandomInt(Game.MAX_NUMBER);
         int secondNumber = Util.getRandomInt(Game.MAX_NUMBER);
         char action = ACTIONS[Util.getRandomInt(ACTIONS.length)];
 
-        gameKit.setQuestion(firstNumber + " " + action + " " + secondNumber);
-        gameKit.setExpectedAnswer("" + calculate(firstNumber, secondNumber, action));
+        String question = firstNumber + " " + action + " " + secondNumber;
+        String expectedAnswer = "" + calculate(firstNumber, secondNumber, action);
 
-        return gameKit;
+        return new GameKit(question, expectedAnswer);
     }
 
     public static int calculate(int firstNumber, int secondNumber, char action) {
